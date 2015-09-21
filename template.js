@@ -57,7 +57,7 @@ exports.template = function (grunt, init, done) {
 		    'grunt-contrib-cssmin'       : 'latest',
 		    'grunt-contrib-imagemin'     : 'latest',
 		    'grunt-contrib-jshint'       : 'latest',
-		    'grunt-contrib-uglify'       : "latest',
+		    'grunt-contrib-uglify'       : 'latest',
 		    'grunt-contrib-watch'        : 'latest',
 		    'grunt-csscomb'              : 'latest',
 		    'grunt-githooks'             : 'latest',
