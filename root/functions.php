@@ -68,13 +68,13 @@ function {%= prefix %}_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( '_s_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( '{%= prefix %}_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 
 	// Add styles to the post editor
-	add_editor_style( array( 'editor-style.css', _s_font_url() ) );
+	add_editor_style( array( 'editor-style.css', {%= prefix %}_font_url() ) );
 	if ( class_exists( 'WDS_Simple_Page_Builder' ) && version_compare( WDS_Simple_Page_Builder::VERSION, '1.6', '>=' ) ) :
 
 		// Add theme support for WDS Simple Page Builder
@@ -128,7 +128,7 @@ add_action( 'after_setup_theme', '_s_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function _s_widgets_init() {
+function {%= prefix %}_widgets_init() {
 
 	// Define sidebars
 	$sidebars = array(
