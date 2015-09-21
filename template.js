@@ -48,30 +48,30 @@ exports.template = function (grunt, init, done) {
 		props.keywords = [];
 		props.version = '0.1.0';
 		props.devDependencies = {
-			"grunt": "latest",
-		    "grunt-autoprefixer": "latest",
-		    "grunt-combine-media-queries": "latest",
-		    "grunt-contrib-clean": "latest",
-		    "grunt-contrib-concat": "latest",
-		    "grunt-contrib-connect": "latest",
-		    "grunt-contrib-cssmin": "latest",
-		    "grunt-contrib-imagemin": "latest",
-		    "grunt-contrib-jshint": "latest",
-		    "grunt-contrib-uglify": "latest",
-		    "grunt-contrib-watch": "latest",
-		    "grunt-csscomb": "latest",
-		    "grunt-githooks": "latest",
-		    "grunt-newer": "latest",
-		    "grunt-phpcs": "latest",
-		    "grunt-sass": "latest",
-		    "grunt-sassdoc": "latest",
-		    "grunt-shell": "latest",
-		    "grunt-spritesmith": "latest",
-		    "grunt-svgmin": "latest",
-		    "grunt-svgstore": "latest",
-		    "grunt-update-submodules": "latest",
-		    "grunt-wp-i18n": "latest",
-		    "load-grunt-tasks": "latest"
+			'grunt': "latest",
+		    'grunt-autoprefixer'         : 'latest',
+		    'grunt-combine-media-queries': 'latest',
+		    'grunt-contrib-clean'        : 'latest',
+		    'grunt-contrib-concat'       : 'latest',
+		    'grunt-contrib-connect'      : 'latest',
+		    'grunt-contrib-cssmin'       : 'latest',
+		    'grunt-contrib-imagemin'     : 'latest',
+		    'grunt-contrib-jshint'       : 'latest',
+		    'grunt-contrib-uglify'       : "latest',
+		    'grunt-contrib-watch'        : 'latest',
+		    'grunt-csscomb'              : 'latest',
+		    'grunt-githooks'             : 'latest',
+		    'grunt-newer'                : 'latest',
+		    'grunt-phpcs'                : 'latest',
+		    'grunt-sass'                 : 'latest',
+		    'grunt-sassdoc'              : 'latest',
+		    'grunt-shell'                : 'latest',
+		    'grunt-spritesmith'          : 'latest',
+		    'grunt-svgmin'               : 'latest',
+		    'grunt-svgstore'             : 'latest',
+		    'grunt-update-submodules'    : 'latest',
+		    'grunt-wp-i18n'              : 'latest',
+		    'load-grunt-tasks'           : 'latest'
     		};
 
 		// Sanitize names where we need to for PHP/JS
@@ -92,11 +92,11 @@ exports.template = function (grunt, init, done) {
 		var files = init.filesToCopy(props);
 
 		//Will they use BuddyPress?
-		if (props.customizer_include.toUpperCase()[0] == "N") {
+		if (props.buddypress_include.toUpperCase()[0] == "N") {
 			delete files[ 'buddypress.php'];
 		}
 		//Will they support WDS Simple Page Builder?
-		if (props.jetpack_support.toUpperCase()[0] == "N") {
+		if (props.pagebuilder_support.toUpperCase()[0] == "N") {
 			delete files[ 'template-page-builder-only.php'];
 		}
 
