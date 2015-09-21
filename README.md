@@ -10,3 +10,6 @@ To create a new project using a grunt-init template just run the following comma
 	$ grunt-init {template name}
 	
 Afterwards you just need to run npm install and the plugins defined in the package.json will be installed.
+
+Props to Bronson Quick for the original article that taught me how grunt-init is done: 
+https://bronsonquick.com.au/blog/2013/10/16/intro-into-grunt-wordpress-project-scaffolding/
