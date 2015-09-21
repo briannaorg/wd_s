@@ -2,6 +2,8 @@
 /**
  * {%= title %} functions and definitions
  *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
  * @package {%= prefix %}
  */
 
@@ -20,13 +22,13 @@ if ( ! function_exists( '{%= prefix %}_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function {%= prefix %}_setup() {
 
+function {%= prefix %}_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on _s, use a find and replace
-	 * to change '_s' to the name of your theme in all the template files
+	 * to change '_s' to the name of your theme in all the template files.
 	 */
 	load_theme_textdomain( '{%= prefix %}', get_template_directory() . '/languages' );
 
@@ -44,7 +46,7 @@ function {%= prefix %}_setup() {
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
 
@@ -58,7 +60,11 @@ function {%= prefix %}_setup() {
 	 * to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
 	) );
 
 	// Set up the WordPress core custom background feature.
@@ -69,8 +75,7 @@ function {%= prefix %}_setup() {
 
 	// Add styles to the post editor
 	add_editor_style( array( 'editor-style.css', _s_font_url() ) );
-
-	if ( version_compare( WDS_Simple_Page_Builder::VERSION, '1.6', '>=' ) ) :
+	if ( class_exists( 'WDS_Simple_Page_Builder' ) && version_compare( WDS_Simple_Page_Builder::VERSION, '1.6', '>=' ) ) :
 
 		// Add theme support for WDS Simple Page Builder
 		add_theme_support( 'wds-simple-page-builder' );
@@ -102,13 +107,26 @@ function {%= prefix %}_setup() {
 
 	endif;
 }
-endif; // _s_setup
+endif; // {%= prefix %}_setup
 add_action( 'after_setup_theme', '{%= prefix %}_setup' );
+
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function _s_content_width() {
+	$GLOBALS['content_width'] = apply_filters( '_s_content_width', 640 );
+}
+add_action( 'after_setup_theme', '_s_content_width', 0 );
 
 /**
  * Register widget area.
  *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function _s_widgets_init() {
 

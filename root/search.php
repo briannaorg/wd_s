@@ -3,9 +3,11 @@
  * The template for displaying search results pages.
  *
  * @package {%= prefix %}
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  */
 
 get_header(); ?>
+
 
 	<div class="wrap">
 

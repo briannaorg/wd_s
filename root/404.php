@@ -3,6 +3,8 @@
  * The template for displaying 404 pages (not found).
  *
  * @package {%= prefix %}
+ * @link https://codex.wordpress.org/Creating_an_Error_404_Page
+ *
  */
 
 get_header(); ?>
@@ -18,7 +20,6 @@ get_header(); ?>
 
 				<div class="page-content">
 					<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', '{%= prefix %}' ); ?></p>
-
 					<?php get{%= prefix %}earch_form(); ?>
 
 					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>

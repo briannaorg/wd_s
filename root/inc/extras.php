@@ -1,11 +1,12 @@
 <?php
 /**
- * Custom functions that act independently of the theme templates
+ * Custom functions that act independently of the theme templates.
  *
- * Eventually, some of the functionality here could be replaced by core features
+ * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package {%= prefix %}
  */
+
 
 /**
  * Adds custom classes to the array of body classes.
@@ -24,6 +25,7 @@ function {%= prefix %}_body_classes( $classes ) {
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
+
 	return $classes;
 }
 add_filter( 'body_class', '{%= prefix %}_body_classes' );
@@ -71,3 +73,15 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	add_action( 'wp_head', '{%= prefix %}_render_title' );
 
 endif;
+
+
+/**
+ * Adds a fallback for wds_page_builder_area() if PageBuilder is not available
+ *
+ * @param string $area Name of the area
+ */
+if ( ! function_exists( 'wds_page_builder_area' ) ) {
+	function wds_page_builder_area( $area ) {
+		do_action( $area );
+	}
+}
