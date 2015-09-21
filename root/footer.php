@@ -26,7 +26,7 @@
 				<?php printf( esc_html__( 'Theme: %1$s by %2$s.', '{%= prefix %}' ), '{%= prefix %}', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
 			</div><!-- .site-info -->
 
-			<?php _s_do_social_icons(); ?>
+			<?php {%= prefix %}_do_social_icons(); ?>
 
 		</div><!-- .wrap -->
 	</footer><!-- #colophon -->
