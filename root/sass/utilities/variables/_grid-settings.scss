@@ -3,9 +3,9 @@
 // http://neat.bourbon.io/examples/
 // --------------------------------------------------------------
 
-$column: em({%= column-size %});      // default width of your columns
+$column: em({%= column_size %});      // default width of your columns
 $gutter: em({%= gutter %});       // default width of the gutters
-$max-width: em({%= max-width %});  // max-width of the grid/theme in pixels
+$max-width: em({%= max_width %});  // max-width of the grid/theme in pixels
 
 // To calculate grids see:
 // http://www.gridsystemgenerator.com/gs02.php?GridWidth=1366&GridColumns=12&GridMarginLeft=10

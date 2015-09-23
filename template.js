@@ -44,7 +44,7 @@ exports.template = function (grunt, init, done) {
 			default: 'y'
 		},
 		{
-			name   : 'column-size',
+			name   : 'column_size',
 			message: 'Enter the column size in pixels',
 			default: '80'
 		},	
@@ -54,7 +54,7 @@ exports.template = function (grunt, init, done) {
 			default: '10'
 		},	
 		{
-			name   : 'max-width',
+			name   : 'max_width',
 			message: 'Enter the max-width for the page layout in pixels',
 			default: '1280'
 		}
