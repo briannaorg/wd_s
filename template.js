@@ -42,8 +42,22 @@ exports.template = function (grunt, init, done) {
 			name   : 'pagebuilder_support',
 			message: 'Will you be using WDS Simple Page Builder? [Y/n]',
 			default: 'y'
+		},
+		{
+			name   : 'column-size',
+			message: 'Enter the column size in pixels',
+			default: '80'
+		},	
+		{
+			name   : 'gutter',
+			message: 'Enter the gutter width in pixels',
+			default: '10'
+		},	
+		{
+			name   : 'max-width',
+			message: 'Enter the max-width for the page layout in pixels',
+			default: '1280'
 		}
-
 	], function (err, props) {
 		props.keywords = [];
 		props.version = '0.1.0';
