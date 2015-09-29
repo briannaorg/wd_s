@@ -1,10 +1,5 @@
-<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-	<label>
-		<span class="screen-reader-text"><?php echo _x( 'Search for:', '{%= prefix %}' ) ?></span>
-		<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search', '{%= prefix %}' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search...', '{%= prefix %}' ) ?>" />
-	</label>
-	
-	<button aria-label="search">
-		<?php _e( 'Submit', '{%= prefix %}' ); ?>
-	</button>
+<form method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+	<label for="search-field"><span class="screen-reader-text"><?php esc_html_e( 'To search this site, enter a search term', '{%= prefix %}' ) ?></span></label>
+	<input class="search-field" id="search-field" type="text" name="s" value="<?php echo get_search_query() ?>" aria-required="false" autocomplete="off" placeholder="<?php echo esc_attr_x( 'Search', '{%= prefix %}' ) ?>" />
+	<button><?php esc_html_e( 'Submit', '{%= prefix %}' ); ?></button>
 </form>
