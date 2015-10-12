@@ -31,6 +31,7 @@ grunt-init /path/to/my-template
 
 3) Answer the questions at the prompt (or hit enter to leave the defaults).
 
+http://github.com/briannaorg/wd_s/wd_s.gif
 
 4) Install dependencies
 
