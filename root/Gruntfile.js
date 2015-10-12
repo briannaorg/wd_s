@@ -87,14 +87,12 @@ module.exports = function(grunt) {
 			}
 		},
 
-		cmq: {
-			options: {
-				log: false
-			},
-			dist: {
-				files: {
-					'style.css': 'style.css'
-				}
+		combine_mq: {
+			default_options: {
+				expand: true,
+				cwd: '',
+				src: ['style.css'],
+				dest: ''
 			}
 		},
 
@@ -284,9 +282,19 @@ module.exports = function(grunt) {
 			},
 		},
 
+		notify_hooks: {
+			options: {
+				enabled: true,
+				max_jshint_notifications: 5, // Limit the # of js-hint notifications (there can be many).
+				title: "wd_s", // Don't use package.json, since it's _s at the moment.
+				success: false, // Don't show success notifications.
+				duration: 2, // How long the notification shows.
+			}
+		},
+
 	});
 
-	grunt.registerTask('styles', ['sass', 'autoprefixer', 'cmq', 'csscomb', 'cssmin']);
+	grunt.registerTask('styles', ['sass', 'autoprefixer', 'combine_mq', 'csscomb', 'cssmin']);
 	grunt.registerTask('javascript', ['concat', 'uglify']);
 	grunt.registerTask('imageminnewer', ['newer:imagemin']);
 	grunt.registerTask('sprites', ['sprite']);
@@ -294,4 +302,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('i18n', ['makepot']);
 	grunt.registerTask('default', ['styles', 'javascript', 'imageminnewer', 'icons', 'i18n', 'sassdoc']);
 
+	// grunt-notify shows native notifications on errors.
+	grunt.loadNpmTasks('grunt-notify');
+	grunt.task.run('notify_hooks');
 };
