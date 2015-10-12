@@ -31,7 +31,7 @@ grunt-init /path/to/my-template
 
 3) Answer the questions at the prompt (or hit enter to leave the defaults).
 
-[instructions]: http://github.com/briannaorg/wd_s/wd_s.gif
+[instructions]: https://github.com/briannaorg/wd_s/blob/master/wd_s.gif
 
 [instructions]
 
