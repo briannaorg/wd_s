@@ -7,7 +7,6 @@
  * @package {%= prefix %}
  */
 
-
 /**
  * Adds custom classes to the array of body classes.
  *
@@ -80,7 +79,6 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	add_action( 'wp_head', '{%= prefix %}_render_title' );
 
 endif;
-
 
 /**
  * Adds a fallback for wds_page_builder_area() if PageBuilder is not available

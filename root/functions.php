@@ -74,11 +74,22 @@ function {%= prefix %}_setup() {
 	) ) );
 
 	// Add styles to the post editor
+<<<<<<< HEAD:root/functions.php
 	add_editor_style( array( 'editor-style.css', {%= prefix %}_font_url() ) );
+=======
+	add_editor_style( array( 'editor-style.css', _s_font_url() ) );
+
+	/**
+	 * Enable support and set configuration options for
+	 * WDS Simple Page Builder.
+	 */
+>>>>>>> WebDevStudios/master:functions.php
 	if ( class_exists( 'WDS_Simple_Page_Builder' ) && version_compare( WDS_Simple_Page_Builder::VERSION, '1.6', '>=' ) ) :
 
-		// Add theme support for WDS Simple Page Builder
+		// Add theme support
 		add_theme_support( 'wds-simple-page-builder' );
+
+		// Define options
 		wds_page_builder_theme_support( array(
 			'hide_options'    => 'disabled', // set to true to hide them completely
 			'parts_dir'       => 'pagebuilder',
@@ -86,11 +97,7 @@ function {%= prefix %}_setup() {
 			'use_wrap'        => 'on', // on is TRUE
 			'container'       => 'section',
 			'container_class' => 'pagebuilder-part', // can use multiple classes, separated by a space
-
-			// Add any other supported post types here
-			'post_types'      => array(
-				'page',
-			),
+			'post_types'      => array( 'page', ), // Add any other supported post types here
 		) );
 
 		// Define areas
@@ -109,7 +116,6 @@ function {%= prefix %}_setup() {
 }
 endif; // {%= prefix %}_setup
 add_action( 'after_setup_theme', '{%= prefix %}_setup' );
-
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -142,7 +148,11 @@ function {%= prefix %}_widgets_init() {
 		register_sidebar( array(
 			'name'          => $sidebar_name,
 			'id'            => $sidebar_id,
+<<<<<<< HEAD:root/functions.php
 			'description'   => esc_html__( 'Widget area for ' . $sidebar_name . '', '{%= prefix %}' ),
+=======
+			'description'   => sprintf ( esc_html__( 'Widget area for %s', '_s' ), $sidebar_name ),
+>>>>>>> WebDevStudios/master:functions.php
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title">',

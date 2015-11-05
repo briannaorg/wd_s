@@ -25,7 +25,6 @@ add_action( 'after_setup_theme', '{%= prefix %}_jetpack_setup' );
  */
 add_filter( 'jetpack_get_default_modules', '__return_empty_array', 99 );
 
-
 /**
  * Custom render function for Infinite Scroll.
  */

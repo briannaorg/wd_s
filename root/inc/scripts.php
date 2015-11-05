@@ -59,7 +59,6 @@ function {%= prefix %}_scripts() {
 
 		$suffix = '';
 		wp_enqueue_script( 'live-reload', '//localhost:35729/livereload.js', array(), $version, true );
-
 	}
 
 	wp_enqueue_style( '{%= prefix %}-google-font', {%= prefix %}_font_url(), array(), null );
@@ -108,4 +107,8 @@ function {%= prefix %}_include_svg_definitions() {
 		require_once( $svg_defs );
 	}
 }
+<<<<<<< HEAD:root/inc/scripts.php
 add_action( 'wp_head', '{%= prefix %}_include_svg_definitions' );
+=======
+add_action( 'wp_head', '_s_include_svg_definitions' );
+>>>>>>> WebDevStudios/master:inc/scripts.php
