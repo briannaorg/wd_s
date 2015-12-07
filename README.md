@@ -1,12 +1,32 @@
 ## New and improved wd_s with scaffolding
 =============
 
+
 Roll up a new WordPress theme in no time by answering a few questions, using grunt-init.
 	
 Props to Bronson Quick for the original article: 
 https://bronsonquick.com.au/blog/2013/10/16/intro-into-grunt-wordpress-project-scaffolding/
 
-=======
+[WebDevStudios](http://webdevstudios.com) fork of Automattic's [_s](https://github.com/Automattic/_s). Used as our new project theme boilerplate. Pull requests are welcome!
+
+# Features
+* Grunt
+* Sass
+* PostCSS
+* SassDocs
+* Bourbon
+* Neat
+* Bower
+* Live reload
+* WDS Simple Page Builder support
+* SVG support
+* Image sprite support
+* Script linting and CSS minifcation
+
+# Pre-Installation
+
+Basic knowledge of the command line and the following dependencies are required to use wd_s:
+
 * [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 * [Node](http://nodejs.org/)
 * [Grunt CLI](https://www.npmjs.com/package/grunt-cli) - `npm install -g grunt-cli`

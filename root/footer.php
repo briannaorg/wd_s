@@ -17,13 +17,12 @@
 		<?php wds_page_builder_area( 'after_content' ); ?>
 	</div>
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer">
 		<div class="wrap">
 
 			<div class="site-info">
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', '{%= prefix %}' ), 'WordPress' ); ?></a>
-				<span class="sep"> | </span>
-				<?php printf( esc_html__( 'Theme: %1$s by %2$s.', '{%= prefix %}' ), '{%= prefix %}', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
+				<?php {%= prefix %}_do_copyright_text(); ?>
+
 			</div><!-- .site-info -->
 
 		</div><!-- .wrap -->

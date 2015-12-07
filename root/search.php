@@ -12,7 +12,7 @@ get_header(); ?>
 	<div class="wrap">
 
 		<section class="primary content-area">
-			<main id="main" class="site-main" role="main">
+			<main id="main" class="site-main">
 
 			<?php if ( have_posts() ) : ?>
 
@@ -29,7 +29,7 @@ get_header(); ?>
 					 * If you want to overload this in a child theme then include a file
 					 * called content-search.php and that will be used instead.
 					 */
-					get_template_part( 'pagebuilder/template-parts/content', 'search' );
+					get_template_part( 'template-parts/content', 'search' );
 					?>
 
 				<?php endwhile; ?>
@@ -38,7 +38,7 @@ get_header(); ?>
 
 			<?php else : ?>
 
-				<?php get_template_part( 'pagebuilder/template-parts/content', 'none' ); ?>
+				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 			<?php endif; ?>
 

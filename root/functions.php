@@ -28,7 +28,7 @@ function {%= prefix %}_setup() {
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on _s, use a find and replace
-	 * to change '_s' to the name of your theme in all the template files.
+	 * to change '{%= prefix %}' to the name of your theme in all the template files.
 	 */
 	load_theme_textdomain( '{%= prefix %}', get_template_directory() . '/languages' );
 
@@ -74,17 +74,13 @@ function {%= prefix %}_setup() {
 	) ) );
 
 	// Add styles to the post editor
-<<<<<<< HEAD:root/functions.php
 	add_editor_style( array( 'editor-style.css', {%= prefix %}_font_url() ) );
-=======
-	add_editor_style( array( 'editor-style.css', _s_font_url() ) );
 
 	/**
 	 * Enable support and set configuration options for
 	 * WDS Simple Page Builder.
 	 */
->>>>>>> WebDevStudios/master:functions.php
-	if ( class_exists( 'WDS_Simple_Page_Builder' ) && version_compare( WDS_Simple_Page_Builder::VERSION, '1.6', '>=' ) ) :
+	if ( class_exists( 'WDS_Simple_Page_Builder' ) && version_compare( WDS_Simple_Page_Builder::VERSION, '1.6', '>=' ) ) {
 
 		// Add theme support
 		add_theme_support( 'wds-simple-page-builder' );
@@ -111,8 +107,7 @@ function {%= prefix %}_setup() {
 		foreach ( $page_builder_areas as $page_builder_area_slug => $page_builder_area ) {
 			register_page_builder_area( $page_builder_area_slug, $page_builder_area );
 		}
-
-	endif;
+	}
 }
 endif; // {%= prefix %}_setup
 add_action( 'after_setup_theme', '{%= prefix %}_setup' );
@@ -124,10 +119,10 @@ add_action( 'after_setup_theme', '{%= prefix %}_setup' );
  *
  * @global int $content_width
  */
-function _s_content_width() {
-	$GLOBALS['content_width'] = apply_filters( '_s_content_width', 640 );
+function {%= prefix %}_content_width() {
+	$GLOBALS['content_width'] = apply_filters( '{%= prefix %}_content_width', 640 );
 }
-add_action( 'after_setup_theme', '_s_content_width', 0 );
+add_action( 'after_setup_theme', '{%= prefix %}_content_width', 0 );
 
 /**
  * Register widget area.
@@ -148,11 +143,7 @@ function {%= prefix %}_widgets_init() {
 		register_sidebar( array(
 			'name'          => $sidebar_name,
 			'id'            => $sidebar_id,
-<<<<<<< HEAD:root/functions.php
-			'description'   => esc_html__( 'Widget area for ' . $sidebar_name . '', '{%= prefix %}' ),
-=======
-			'description'   => sprintf ( esc_html__( 'Widget area for %s', '_s' ), $sidebar_name ),
->>>>>>> WebDevStudios/master:functions.php
+			'description'   => sprintf ( esc_html__( 'Widget area for %s', '{%= prefix %}' ), $sidebar_name ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -162,6 +153,11 @@ function {%= prefix %}_widgets_init() {
 
 }
 add_action( 'widgets_init', '{%= prefix %}_widgets_init' );
+
+/**
+ * Implement the Custom Header feature.
+ */
+require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
