@@ -8,45 +8,45 @@
 
 get_header(); ?>
 
+	<section class="primary content-area">
+		<main id="main" class="site-main">
 
-	<div class="wrap">
+		<?php if ( have_posts() ) : ?>
 
-		<section class="primary content-area">
-			<main id="main" class="site-main">
+			<header class="page-header">
+				<h1 class="page-title"><?php /* translators: the term(s) searched */ printf( esc_html__( 'Search Results for: %s', '_s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			</header><!-- .page-header -->
 
-			<?php if ( have_posts() ) : ?>
+			<?php
+			/* Start the Loop */
+			while ( have_posts() ) :
+				the_post();
 
+<<<<<<< HEAD:root/search.php
 				<header class="page-header">
 					<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', '{%= prefix %}' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				</header><!-- .page-header -->
+=======
+				/**
+					* Run the loop for the search to output the results.
+					* If you want to overload this in a child theme then include a file
+					* called content-search.php and that will be used instead.
+					*/
+				get_template_part( 'template-parts/content', 'search' );
+>>>>>>> WebDevStudios/master:search.php
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+			endwhile;
 
-					<?php
-					/**
-					 * Run the loop for the search to output the results.
-					 * If you want to overload this in a child theme then include a file
-					 * called content-search.php and that will be used instead.
-					 */
-					get_template_part( 'template-parts/content', 'search' );
-					?>
+			_s_display_numeric_pagination();
 
-				<?php endwhile; ?>
+		else :
 
-				<?php the_posts_navigation(); ?>
+			get_template_part( 'template-parts/content', 'none' );
 
-			<?php else : ?>
+		endif;
+		?>
 
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-			<?php endif; ?>
-
-			</main><!-- #main -->
-		</section><!-- .primary -->
-
-		<?php get_sidebar(); ?>
-
-	</div><!-- .wrap -->
+		</main><!-- #main -->
+	</section><!-- .primary -->
 
 <?php get_footer(); ?>

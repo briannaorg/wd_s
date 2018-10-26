@@ -1,0 +1,126 @@
+//--------------------------------------------------------------
+// Scaffolding Library
+//--------------------------------------------------------------
+
+//-----------------------------------------
+// IE11 Tweak
+//-----------------------------------------
+.page-template-template-scaffolding .primary {
+	float: none;
+	width: 100%;
+}
+
+//-----------------------------------------
+// Scaffolding defaults
+//-----------------------------------------
+.scaffolding-document {
+	margin-bottom: $gutter * 2;
+
+	// The section <header>
+	&-header {
+		border-bottom: rem(1) solid $color-alto;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: $gutter;
+		padding-bottom: $gutter;
+
+		// The title.
+		h2 {
+			@include margin-padding-reset;
+		} // h2
+
+		// The text.
+		p {
+			font-style: italic;
+			margin-top: rem(12);
+		} // p
+	} // .scaffolding-section-header
+
+	// The section content <div>
+	&-content {
+		display: none;
+
+		// Reset.
+		h4,
+		p {
+			margin: $gutter 0;
+		} // h4, p
+
+		// The <pre> container.
+		pre {
+			background-color: $color-white;
+			border: rem(1) solid $color-alto;
+			color: $color-silver-chalice;
+			margin: 0 0 $gutter;
+			padding: $gutter;
+		} // pre
+
+		// The <code> container.
+		code {
+			background-color: $color-alto;
+			font-size: rem(13);
+			padding: rem(5);
+		} // code
+	} // &-content
+
+	// Always display the global scaffolding.
+	&.scaffolding-colors,
+	&.scaffolding-fonts {
+
+		.scaffolding-document-content {
+			display: block;
+		} // .scaffolding-document-content
+	} // &.scaffolding-colors, &.scaffolding-fonts
+} // .scaffolding-document
+
+
+//-----------------------------------------
+// Color swatch defaults
+//-----------------------------------------
+.swatch-container {
+	@include clearfix;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	position: relative;
+
+	// Each swatch.
+	.swatch {
+		border: 1px solid $color-alto;
+		border-radius: rem(5);
+		flex: 0 1 23.875%;
+		height: rem(125);
+		margin-bottom: $gutter;
+		margin-right: 1.5%;
+		position: relative;
+		text-align: center;
+
+		&:nth-child(4n) {
+			margin-right: 0;
+		}
+
+		// The swatch <header>
+		& header {
+			align-content: center;
+			color: $color-alto;
+			display: flex;
+			flex-direction: column;
+			height: calc(100% - 39px);
+			justify-content: center;
+		} // header
+
+		// The swatch <footer>
+		& footer {
+			@include position(absolute, null null 0 null);
+
+			background-color: $color-white;
+			border-top: 1px solid $color-alto;
+			border-bottom-left-radius: rem(4);
+			border-bottom-right-radius: rem(4);
+			font-size: rem(12);
+			padding: rem(10);
+			width: 100%;
+		} // footer
+	} // .swatch
+} // .swatch-container

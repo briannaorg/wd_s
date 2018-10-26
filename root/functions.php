@@ -7,6 +7,7 @@
  * @package {%= prefix %}
  */
 
+<<<<<<< HEAD:root/functions.php
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
@@ -45,9 +46,17 @@ function {%= prefix %}_setup() {
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
+=======
+if ( ! function_exists( '_s_setup' ) ) :
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+>>>>>>> WebDevStudios/master:functions.php
 	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	 * Note that this function is hooked into the after_setup_theme hook, which
+	 * runs before the init hook. The init hook is too late for some features, such
+	 * as indicating support for post thumbnails.
 	 */
+<<<<<<< HEAD:root/functions.php
 	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
@@ -75,27 +84,72 @@ function {%= prefix %}_setup() {
 
 	// Add styles to the post editor
 	add_editor_style( array( 'editor-style.css', {%= prefix %}_font_url() ) );
+=======
+	function _s_setup() {
+		/**
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on _s, use a find and replace
+		 * to change '_s' to the name of your theme in all the template files.
+		 * You will also need to update the Gulpfile with the new text domain
+		 * and matching destination POT file.
+		 */
+		load_theme_textdomain( '_s', get_template_directory() . '/languages' );
 
-	/**
-	 * Enable support and set configuration options for
-	 * WDS Simple Page Builder.
-	 */
-	if ( class_exists( 'WDS_Simple_Page_Builder' ) && version_compare( WDS_Simple_Page_Builder::VERSION, '1.6', '>=' ) ) {
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
 
-		// Add theme support
-		add_theme_support( 'wds-simple-page-builder' );
+		/**
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
+		add_theme_support( 'title-tag' );
 
-		// Define options
-		wds_page_builder_theme_support( array(
-			'hide_options'    => 'disabled', // set to true to hide them completely
-			'parts_dir'       => 'pagebuilder',
-			'parts_prefix'    => 'part',
-			'use_wrap'        => 'on', // on is TRUE
-			'container'       => 'section',
-			'container_class' => 'pagebuilder-part', // can use multiple classes, separated by a space
-			'post_types'      => array( 'page', ), // Add any other supported post types here
+		/**
+		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		 */
+		add_theme_support( 'post-thumbnails' );
+		add_image_size( 'full-width', 1920, 1080, false );
+
+		// Register navigation menus.
+		register_nav_menus( array(
+			'primary' => esc_html__( 'Primary Menu', '_s' ),
+			'mobile'  => esc_html__( 'Mobile Menu', '_s' ),
 		) );
 
+		/**
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
+		add_theme_support( 'html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		) );
+>>>>>>> WebDevStudios/master:functions.php
+
+		// Set up the WordPress core custom background feature.
+		add_theme_support( 'custom-background', apply_filters( '_s_custom_background_args', array(
+			'default-color' => 'ffffff',
+			'default-image' => '',
+		) ) );
+
+		// Custom logo support.
+		add_theme_support( 'custom-logo', array(
+			'height'      => 250,
+			'width'       => 500,
+			'flex-height' => true,
+			'flex-width'  => true,
+			'header-text' => array( 'site-title', 'site-description' ),
+		) );
+
+<<<<<<< HEAD:root/functions.php
 		// Define areas
 		$page_builder_areas = array(
 			'hero'           => array( 'name' => esc_html__( 'Hero Area', '{%= prefix %}' ), ),
@@ -111,6 +165,13 @@ function {%= prefix %}_setup() {
 }
 endif; // {%= prefix %}_setup
 add_action( 'after_setup_theme', '{%= prefix %}_setup' );
+=======
+		// Add theme support for selective refresh for widgets.
+		add_theme_support( 'customize-selective-refresh-widgets' );
+	}
+endif; // _s_setup
+add_action( 'after_setup_theme', '_s_setup' );
+>>>>>>> WebDevStudios/master:functions.php
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -131,33 +192,39 @@ add_action( 'after_setup_theme', '{%= prefix %}_content_width', 0 );
  */
 function {%= prefix %}_widgets_init() {
 
-	// Define sidebars
+	// Define sidebars.
 	$sidebars = array(
+<<<<<<< HEAD:root/functions.php
 		'sidebar-1'  => esc_html__( 'Sidebar 1', '{%= prefix %}' ),
 	//	'sidebar-2'  => esc_html__( 'Sidebar 2', '{%= prefix %}' ),
 	//	'sidebar-3'  => esc_html__( 'Sidebar 3', '{%= prefix %}' ),
+=======
+		'sidebar-1' => esc_html__( 'Sidebar 1', '_s' ),
+		// 'sidebar-2'  => esc_html__( 'Sidebar 2', '_s' ),
+		// 'sidebar-3'  => esc_html__( 'Sidebar 3', '_s' ),
+>>>>>>> WebDevStudios/master:functions.php
 	);
 
-	// Loop through each sidebar and register
+	// Loop through each sidebar and register.
 	foreach ( $sidebars as $sidebar_id => $sidebar_name ) {
 		register_sidebar( array(
 			'name'          => $sidebar_name,
 			'id'            => $sidebar_id,
+<<<<<<< HEAD:root/functions.php
 			'description'   => sprintf ( esc_html__( 'Widget area for %s', '{%= prefix %}' ), $sidebar_name ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+=======
+			'description'   => /* translators: the sidebar name */ sprintf( esc_html__( 'Widget area for %s', '_s' ), $sidebar_name ),
+			'before_widget' => '<aside class="widget %2$s">',
+>>>>>>> WebDevStudios/master:functions.php
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
 		) );
 	}
 
 }
 add_action( 'widgets_init', '{%= prefix %}_widgets_init' );
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -170,16 +237,41 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 
 /**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
- * Load styles and scripts
+ * Load styles and scripts.
  */
 require get_template_directory() . '/inc/scripts.php';
+
+/**
+ * Load custom ACF features.
+ */
+require get_template_directory() . '/inc/acf.php';
+
+/**
+ * Load custom ACF search functionality.
+ */
+require get_template_directory() . '/inc/acf-search.php';
+
+/**
+ * Load custom filters and hooks.
+ */
+require get_template_directory() . '/inc/hooks.php';
+
+/**
+ * Load custom queries.
+ */
+require get_template_directory() . '/inc/queries.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer/customizer.php';
+
+/**
+ * Scaffolding Library.
+ */
+require get_template_directory() . '/inc/scaffolding.php';

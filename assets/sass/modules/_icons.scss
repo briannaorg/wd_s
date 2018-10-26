@@ -1,0 +1,98 @@
+//--------------------------------------------------------------
+// Icons
+//--------------------------------------------------------------
+
+// Social icons <ul>
+.social-icons {
+	@include clearfix;
+	@include list-reset;
+
+	// Each icon <li>
+	.social-icon {
+		display: inline-block;
+
+		// Loop through all social icons
+		@each $social-color, $color in $social-colors {
+
+			// Set styles on those social icons!
+			.icon-#{$social-color} {
+				@include size(rem(30) rem(30));
+
+				fill: $color;
+
+				&:hover {
+					fill: lighten($color, 20%);
+				} // &:hover
+			} // .icon-#{$social-color}
+		} // end each loop
+
+		// No margin for the last <li> item
+		&:last-child {
+			margin-right: 0;
+		} // &:last-child
+	} // .social-icon
+} // .social-icons
+
+//-----------------------------------------
+// Close icon
+//-----------------------------------------
+.close {
+	cursor: pointer;
+	display: block;
+	margin-top: rem(-5);
+	outline: none;
+
+	&::before,
+	&::after {
+		@include size(rem(20) rem(3));
+
+		background: $color-white;
+		border-radius: $border-radius-thin;
+		content: '';
+		cursor: pointer;
+		display: block;
+		position: relative;
+	}
+
+	&::before {
+		top: rem(3);
+		transform: rotate(45deg);
+	}
+
+	&::after {
+		transform: rotate(-45deg);
+	}
+} // .cross
+
+//--------------------------------------------------------------
+// Down arrow icon
+//--------------------------------------------------------------
+.down-arrow {
+	cursor: pointer;
+	display: block;
+	margin-left: rem(10);
+	outline: none;
+	transition: $transition-transform;
+
+	&::before,
+	&::after {
+		@include size(rem(10) rem(2));
+
+		background: $color-white;
+		border-radius: $border-radius-thin;
+		content: '';
+		cursor: pointer;
+		display: block;
+		position: relative;
+	}
+
+	&::before {
+		left: rem(-6);
+		top: rem(2);
+		transform: rotate(45deg);
+	}
+
+	&::after {
+		transform: rotate(-225deg);
+	}
+} // .down-arrow

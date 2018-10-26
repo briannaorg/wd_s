@@ -9,12 +9,12 @@
 
 get_header(); ?>
 
-	<div class="wrap content-area">
-
+	<div class="primary content-area">
 		<main id="main" class="site-main">
 
 			<section class="error-404 not-found">
 				<header class="page-header">
+<<<<<<< HEAD:root/404.php
 					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', '{%= prefix %}' ); ?></h1>
 				</header><!-- .page-header -->
 
@@ -48,12 +48,21 @@ get_header(); ?>
 					?>
 
 					<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
+=======
+					<h1 class="page-title"><?php esc_html_e( 'Sorry, this page doesn\'t exist.', '_s' ); ?></h1>
+				</header><!-- .page-header -->
+
+				<div class="page-content">
+
+					<p><?php esc_html_e( 'It seems we can’t find what you’re looking for. Perhaps searching can help.', '_s' ); ?></p>
+
+					<?php get_search_form(); ?>
+>>>>>>> WebDevStudios/master:404.php
 
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
 
 		</main><!-- #main -->
-
-	</div><!-- .wrap -->
+	</div><!-- .primary -->
 
 <?php get_footer(); ?>

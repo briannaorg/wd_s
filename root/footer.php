@@ -13,10 +13,9 @@
 
 	</div><!-- #content -->
 
-	<div class="footer-area">
-		<?php wds_page_builder_area( 'after_content' ); ?>
-	</div>
+	<footer class="site-footer">
 
+<<<<<<< HEAD:root/footer.php
 	<footer id="colophon" class="site-footer">
 		<div class="wrap">
 
@@ -27,9 +26,18 @@
 
 		</div><!-- .wrap -->
 	</footer><!-- #colophon -->
+=======
+		<div class="site-info">
+			<?php _s_display_copyright_text(); ?>
+			<?php _s_display_social_network_links(); ?>
+		</div><!-- .site-info -->
+	</footer><!-- .site-footer container-->
+>>>>>>> WebDevStudios/master:footer.php
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+<?php _s_display_mobile_menu(); ?>
 
 </body>
 </html>

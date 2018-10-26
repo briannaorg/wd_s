@@ -1,5 +1,5 @@
-bower_components/bourbon
-bower_components/neat
+assets/bower_components/bourbon/
+assets/bower_components/neat/
 node_modules/
 .idea/
 .sass-cache
@@ -10,4 +10,8 @@ compass_app_log.txt
 .DS_Store
 .AppleDouble
 .LSOverride
+<<<<<<< HEAD
 package.json
+=======
+/vendor/
+>>>>>>> WebDevStudios/master

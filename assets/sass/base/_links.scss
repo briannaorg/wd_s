@@ -1,0 +1,20 @@
+//--------------------------------------------------------------
+// Global Link Styles
+//--------------------------------------------------------------
+
+a {
+	color: $color-link;
+	opacity: 1;
+	transition: $transition-opacity;
+
+	&:visited {
+		color: $color-link-visited;
+	} // &:visited
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color-link-hover;
+		opacity: 0.6;
+	} // &:hover, &:focus, &:active
+} // a
